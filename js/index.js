@@ -208,7 +208,7 @@ async function init() {
         className: "show-bg",
         x: xScale(new Date(1645574400000)),
         y: yScale(parseFloat(54.66896323920333)),
-        dy: 150,
+        dy: 120,
         dx: -2
     }, {
         //below in makeAnnotations has type set to d3.annotationLabel
