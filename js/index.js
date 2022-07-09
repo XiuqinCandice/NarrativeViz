@@ -413,6 +413,7 @@ async function init() {
                     currentAnnotationIndex = -1
                     clearLegend()
                     clearFocus()
+                    showHighlightedEvent = false
                 }
 
                 renderChart()
