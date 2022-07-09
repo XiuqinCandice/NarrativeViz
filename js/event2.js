@@ -142,7 +142,7 @@ async function init() {
         note: {
             label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reverse system, it became the top three lead investors. SINGAPORE, Jan. 19, 2022 /PRNewswire-PRWeb/ -- The Luna Foundation Guard (LFG), a non-profit organization based in Singapore, has announced its formation and mission objective to support and sustain the growth and development of open-source technology, facilitating the realization of a decentralized economy. The entity, whose first prerogative is to focus on building reserves to better safeguard the UST peg during adverse market conditions, and second, allocating grants funding the development of the Terra ecosystem. LFG will receive an initial gift allocation of 50 million LUNA from Terraform Labs (TFL) to launch its intended initiatives. The funding will go toward building a bitcoin-denominated foreign-exchange reserve for UST, an algorithmic-based stablecoin in the Terra ecosystem, according to a statement.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
-            title: "Feb.22 2022 -- Event2",
+            title: "Feb.22 2022 -- Event 2",
             wrap: 500
         },
         className: "show-bg",

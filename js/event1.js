@@ -142,7 +142,7 @@ async function init() {
         note: {
             label: "After hitting its all time high, the price drop sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon may violate federal securiteis law. At issue is Terra’s Mirror Protocol, a decentralized finance (DeFi) platform on which synthetic stocks mirroring the price of major U.S. firms are minted and traded. The subpoena requests that Kwon provide testimony to U.S. regulators. As a resident of South Korea, Kwon is contesting the subpoena. Terraform’s lawsuit against the SEC is unusual but, according to Anderson Kill lawyer Stephen Palley, preemptive legal action might make sense in this case. The SEC told Terraform’s lawyers the U.S. regulator might sue the company. “In a conversation on September 15, 2021, the SEC attorneys advised that they believe that some sort of enforcement action was warranted against TFL [Terraform Labs] and any cooperation, and implementation of remedial actions as to the Mirror Protocol, would result in a reduced financial sanction as part of any consent agreement,” according to the lawsuit. Five days later, Kwon was served. “The subpoenas were served on Mr. Kwon in public: Mr. Kwon was approached by the process server as he exited an escalator at the Mainnet summit while on his way to make a scheduled presentation that was not about the Mirror Protocol,” the suit said.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
-            title: "Sept.21 2021 -- Event1",
+            title: "Sept.21 2021 -- Event 1",
             wrap: 500
         },
         className: "show-bg",

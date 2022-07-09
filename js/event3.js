@@ -142,7 +142,7 @@ async function init() {
         note: {
             label: "LFG continued to purchase billion dollars worth of BTC, Do Kown and other influential crypto investor tweeted to push the LUNA price to all time high. the Luna Foundation Guard’s (LFG) bitcoin wallet address purchased more than 27,000 BTC worth roughly $1.3 billion. The foundation is delivering on its month-old promise to add BTC as an additional layer of security for UST, which is Terra's decentralized dollar-pegged stablecoin. Do Kwon, the foundation's director, confirmed the address to Bitcoin Magazine in an email, which was also marked by OKLink, a blockchain information website. There appears to be a synergy between bitcoin and the Terra ecosystem, according to Lucas Outumuro, head of research at IntoTheBlock, a crypto data company. UST benefits from having additional backing and bitcoin benefits not just from the buying pressure, but also from having a stable medium of exchange backed by BTC, Outumuro wrote in an email to CoinDesk. On March 23, Do Kwon tweets “By my hand DAI will die” as he begins in earnest plans to starve off decentralized stablecoin DAI’s liquidity on Curve. On March 29, March 29: Kyle Davies, co-founder of influential trading firm Three Arrows Capital, tweets, “Grandpa, what was the world like when $LUNA was less than three digits?”",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
-            title: "Mar-Apr 2022 -- Event3",
+            title: "Mar-Apr 2022 -- Event 3",
             wrap: 500
         },
         className: "show-bg",
