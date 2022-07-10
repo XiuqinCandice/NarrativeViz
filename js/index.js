@@ -4,6 +4,7 @@ async function init() {
     const headerHeight = document.querySelector('#header').clientHeight
     const width = window.innerWidth - margin.left - margin.right;
     const height = window.innerHeight - margin.top - margin.bottom - headerHeight - margin['top'];
+    const ratio = window.innerWidth / 1920
 
     const svg = d3
         .select('#chart')
@@ -164,7 +165,7 @@ async function init() {
             label: "After hitting its all time high, the LUNA price dropped sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon. At issue is Terra's Mirror Protocol, a decentralized finance (DeFi) platform on which synthetic stocks mirroring the price of major U.S. firms are minted and traded. The subpoena requests that Kwon provide testimony to U.S. regulators. As a resident of South Korea, Kwon contested the subpoena. The SEC told Terraform's lawyers the U.S. regulator might sue the company. Subpoenas were served on Mr. Kwon in public: Mr. Kwon was approached by the process server as he exited an escalator at the Mainnet Summit while on his way to make a scheduled presentation that was not about the Mirror Protocol.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Sept. 21, 2021 — Event 1",
-            wrap: 500
+            wrap: d3.scaleLinear().range([400, 500]).clamp(true)(ratio)
         },
         className: "show-bg",
         x: xScale(new Date(1632268800000)),
@@ -177,7 +178,7 @@ async function init() {
             label: "The Luna Foundation Guard (LFG), a non-profit organization based in Singapore, has announced its formation and mission objective to support and sustain the growth and development of open-source technology, facilitating the realization of a decentralized economy. The entity, whose first prerogative is to focus on building reserves to better safeguard the UST peg during adverse market conditions, and second, allocating grants funding the development of the Terra ecosystem. LFG received an initial gift allocation of 50 million LUNA from Terraform Labs (TFL) to launch its intended initiatives. The funding will go toward building a bitcoin-denominated foreign-exchange reserve for UST, an algorithmic-based stablecoin in the Terra ecosystem, according to a statement.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Feb. 22, 2022 — Event 2",
-            wrap: 500
+            wrap: d3.scaleLinear().range([400, 500]).clamp(true)(ratio)
         },
         className: "show-bg",
         x: xScale(new Date(1645574400000)),
@@ -190,7 +191,7 @@ async function init() {
             label: "The Luna Foundation Guard's (LFG) bitcoin wallet address purchased more than 27,000 BTC worth roughly $1.3 billion, as LUNA price breaks all-time highs. The foundation is delivering on its month-old promise to add BTC as an additional layer of security for UST, which is Terra's decentralized dollar-pegged stablecoin. UST benefits from having additional backing and bitcoin benefits not just from the buying pressure, but also from having a stable medium of exchange backed by BTC. On March 23, Do Kwon tweets “By my hand DAI will die” as he begins in earnest plans to starve off decentralized stablecoin DAI’s liquidity on Curve. On March 29, March 29: Kyle Davies, co-founder of influential trading firm Three Arrows Capital, tweets, “Grandpa, what was the world like when $LUNA was less than three digits?”",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Mar-Apr, 2022 — Event 3",
-            wrap: 500
+            wrap: d3.scaleLinear().range([400, 500]).clamp(true)(ratio)
         },
         className: "show-bg",
         x: xScale(new Date(1646956800000)),
@@ -203,7 +204,7 @@ async function init() {
             label: "The LUNA price falls 96% in a day, pushing it to less than 10 cents. On May 7, a bot that monitors and tweets large amounts of swaps, shows an 85 million UST swap for 84.5 million USDC. On May 8, UST dropped to a low of $0.985, below its $1 peg. On May 8, LFG committed to loaning $750 million of BTC to market makers to defend the peg of UST and another $750 million of UST to be used to buy back BTC after volatility subsides. On the same day, Do Kwon jokes his way out of UST’s depegging risk. On May 9, Deposits on the Anchor protocol plunged below $9 billion from $14 billion after UST struggled to recover to $1. UST loses its $1 peg for the second time and falls to as low as 35 cents. Do Kwon again tweets, “Deploying more capital – steady lads.” LUNA reaches price levels previously seen in August 2021. Value locked on Anchor, Terra’s largest decentralized finance (DeFi) protocol, drops $11 billion over two days. After LUNA almost lost all of its token value, The Terra blockchain is halted for the second time at block 7607789 but resumes activity after around nine hours. The Okx and Binance exchanges end trading of Terra tokens after UST loses its dollar peg and LUNA slumps by more than 99%.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "May 12, 2022 — Event 4",
-            wrap: 600
+            wrap: d3.scaleLinear().range([400, 600]).clamp(true)(ratio)
         },
         className: "show-bg",
         x: xScale(new Date(1652400000000)),
@@ -291,13 +292,14 @@ async function init() {
         d3.selectAll('.lineLegend').remove();
     }
 
+    const fontSize = d3.scaleLinear().range([8, 16]).clamp(true)
     const updateLegends = index => {
         const price = parseFloat(data.prices[index][1])
         const market_cap = parseFloat(data.market_caps[index][1])
         const volume = parseFloat(data.total_volumes[index][1])
         const date = new Date(data.prices[index][0])
 
-        const legendKeys = ["date", "price", "market cap", "volume"]
+        const legendKeys = ["Date", "Price", "Market Cap", "Volume"]
         const lineLegend = svg
             .selectAll('.lineLegend')
             .data(legendKeys)
@@ -310,13 +312,13 @@ async function init() {
         lineLegend
             .append('text')
             .text(d => {
-                if (d === 'date') {
+                if (d === 'Date') {
                     return `${d}: ${date.toLocaleDateString()}`;
-                } else if (d === 'price') {
+                } else if (d === 'Price') {
                     return `${d}: $${numberWithCommas(price.toFixed(10))}`;
-                } else if (d === 'market cap') {
+                } else if (d === 'Market Cap') {
                     return `${d}: $${numberWithCommas(market_cap.toFixed(10))}`;
-                } else if (d === 'volume') {
+                } else if (d === 'Volume') {
                     return `${d}: $${numberWithCommas(volume.toFixed(10))}`;
                 } else {
                     return `${d}: unknown?`;
@@ -324,6 +326,7 @@ async function init() {
             })
             .style('fill', 'black')
             .attr('transform', 'translate(15,9)')
+            .style("font-size", fontSize(ratio))
     };
 
     const findEventSubstring = "— Event "
@@ -353,10 +356,7 @@ async function init() {
                 .type(d3.annotationLabel)
                 .annotations(annotations.slice(0, currentAnnotationIndex + 1))
         }
-        const fontSize = d3.scaleLinear().range([8, 20]).clamp(true)
-        const wrap = d3.scaleLinear().range([40, 160]).clamp(true)
-        let ratio = window.innerWidth / 3600
-        makeAnnotations.textWrap(wrap(ratio))
+        const fontSize = d3.scaleLinear().range([8, 16]).clamp(true)
         svg.select('.annotation-group').remove()
         svg.append("g")
             .attr("class", "annotation-group")
