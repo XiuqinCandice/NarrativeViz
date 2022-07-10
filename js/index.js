@@ -255,7 +255,11 @@ async function init() {
         .attr('class', 'overlay')
         .attr('width', width)
         .attr('height', height)
-        .on('mouseover', () => focus.style('display', null))
+        .on('mouseover', () => {
+            if (currentAnnotationIndex >= 0) {
+                focus.style('display', null)
+            }
+        })
         .on('mouseout', () => focus.style('display', 'none'))
         .on('mousemove', e => generateCrosshair(e));
 
@@ -321,11 +325,11 @@ async function init() {
                 if (d === 'date') {
                     return `${d}: ${date.toLocaleDateString()}`;
                 } else if (d === 'price') {
-                    return `${d}: $${price.toFixed(10)}`;
+                    return `${d}: $${numberWithCommas(price.toFixed(10))}`;
                 } else if (d === 'market cap') {
-                    return `${d}: $${market_cap.toFixed(10)}`;
+                    return `${d}: $${numberWithCommas(market_cap.toFixed(10))}`;
                 } else if (d === 'volume') {
-                    return `${d}: $${volume.toFixed(10)}`;
+                    return `${d}: $${numberWithCommas(volume.toFixed(10))}`;
                 } else {
                     return `${d}: unknown?`;
                 }
@@ -408,13 +412,13 @@ async function init() {
                 if (currentAnnotationIndex == annotations.length) {
                     currentAnnotationIndex = -1
                     clearLegend()
-                    focus.style('display', 'none')
                 }
 
                 showHighlightedEvent = false
                 renderChart()
                 renderAnnotations()
                 renderButton()
+                focus.style('display', 'none')
             })
 
         group
@@ -506,4 +510,10 @@ async function init() {
     }
 
     renderButton()
+}
+
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
 }
