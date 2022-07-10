@@ -299,10 +299,6 @@ async function init() {
         d3.selectAll('.lineLegend').remove();
     }
 
-    const clearFocus = () => {
-        d3.select('.focus').remove()
-    }
-
     const updateLegends = index => {
         const price = parseFloat(data.prices[index][1])
         const market_cap = parseFloat(data.market_caps[index][1])
@@ -412,10 +408,10 @@ async function init() {
                 if (currentAnnotationIndex == annotations.length) {
                     currentAnnotationIndex = -1
                     clearLegend()
-                    clearFocus()
-                    showHighlightedEvent = false
+                    focus.style('display', 'none')
                 }
 
+                showHighlightedEvent = false
                 renderChart()
                 renderAnnotations()
                 renderButton()
