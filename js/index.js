@@ -64,8 +64,6 @@ async function init() {
     };
 
     const annotations = [{
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
         type: d3.annotationCallout,
         note: {
             label: "A South Korean crypto exchange launches the first LUNA staking product",
@@ -77,13 +75,11 @@ async function init() {
         x: xScale(new Date(1582588800000)),
         y: yScale(parseFloat(0.24526159357715532)),
         dy: -100,
-        dx: -100
+        dx: -100,
     }, {
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
         type: d3.annotationCallout,
         note: {
-            label: "UST, the Terra blockchain’s stablecoin, is publicly announced, with plans to launch on Ethereum and Solana.",
+            label: "UST, the Terra blockchain’s stablecoin, is publicly announced, with plans to launch on the Ethereum and Solana networks.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Sept.21 2020",
             wrap: 190
@@ -94,11 +90,9 @@ async function init() {
         dy: -100,
         dx: -100
     }, {
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
         type: d3.annotationCallout,
         note: {
-            label: "After hitting its all time high, the price drop sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon may violate federal securities law.",
+            label: "After hitting its all time high, the price drop sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon with concerns that Terra may violate Federal Securities law.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Sept.21 2021 -- Event 1",
             wrap: 190
@@ -109,14 +103,12 @@ async function init() {
         dy: -100,
         dx: -100
     }, {
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
         type: d3.annotationCallout,
         note: {
-            label: "LUNA's price nearly hit 100, extending a four-month winning trend and decoupling from the weak trend in other top coins",
+            label: "LUNA's price nearly hit 100, extending a four-month winning trend and decoupling from the weak trend in other top coins.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Dec.22 2021",
-            wrap: 190
+            wrap: 200
         },
         className: "show-bg",
         x: xScale(new Date(1640563200000)),
@@ -124,11 +116,9 @@ async function init() {
         dy: 50,
         dx: -100
     }, {
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
         type: d3.annotationCallout,
         note: {
-            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reverse system, it became the top three lead investors",
+            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reserve system, with Jump Crypto and Three Arrows Capital as lead investors.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Feb.22 2022 -- Event 2",
             wrap: 160
@@ -136,14 +126,12 @@ async function init() {
         className: "show-bg",
         x: xScale(new Date(1645574400000)),
         y: yScale(parseFloat(54.66896323920333)),
-        dy: 120,
+        dy: 130,
         dx: -2
     }, {
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
         type: d3.annotationCallout,
         note: {
-            label: "LFG continued to purchase billion dollars worth of BTC, Do Kwon and other influential crypto investor tweeted to push the LUNA price to all time high",
+            label: "LFG continued to purchase billion dollars worth of BTC, Do Kwon and other influential crypto investor tweeted to push the LUNA price to all time high.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Mar-Apr 2022 -- Event 3",
             wrap: 190
@@ -154,8 +142,7 @@ async function init() {
         dy: -5,
         dx: -5
     }, {
-        //below in makeAnnotations has type set to d3.annotationLabel
-        //you can add this type value below to override that default
+
         type: d3.annotationCallout,
         note: {
             label: "The LUNA price falls 96% in a day, pushing it to less than 10 cents.",
@@ -168,12 +155,12 @@ async function init() {
         y: yScale(parseFloat(0.0012191899563018388)),
         dy: -100,
         dx: 0
-    }].map(function (d) { d.color = "#E8336D"; return d })
+    }].map(function (d) { d.color = "#444444"; return d })
 
     const highlightedAnnotations = [{
         type: d3.annotationCallout,
         note: {
-            label: "After hitting its all time high, the price drop sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon may violate federal securiteis law. At issue is Terra’s Mirror Protocol, a decentralized finance (DeFi) platform on which synthetic stocks mirroring the price of major U.S. firms are minted and traded. The subpoena requests that Kwon provide testimony to U.S. regulators. As a resident of South Korea, Kwon is contesting the subpoena. Terraform’s lawsuit against the SEC is unusual but, according to Anderson Kill lawyer Stephen Palley, preemptive legal action might make sense in this case. The SEC told Terraform’s lawyers the U.S. regulator might sue the company. “In a conversation on September 15, 2021, the SEC attorneys advised that they believe that some sort of enforcement action was warranted against TFL [Terraform Labs] and any cooperation, and implementation of remedial actions as to the Mirror Protocol, would result in a reduced financial sanction as part of any consent agreement,” according to the lawsuit. Five days later, Kwon was served. “The subpoenas were served on Mr. Kwon in public: Mr. Kwon was approached by the process server as he exited an escalator at the Mainnet summit while on his way to make a scheduled presentation that was not about the Mirror Protocol,” the suit said.",
+            label: "After hitting its all time high, the price dropped sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon may violate Federal Securities law. At issue is Terra’s Mirror Protocol, a decentralized finance (DeFi) platform on which synthetic stocks mirroring the price of major U.S. firms are minted and traded. The subpoena requests that Kwon provide testimony to U.S. regulators. As a resident of South Korea, Kwon is contesting the subpoena. Terraform's lawsuit against the SEC is unusual but, according to Anderson Kill lawyer Stephen Palley, preemptive legal action might make sense in this case. The SEC told Terraform's lawyers the U.S. regulator might sue the company. “In a conversation on September 15, 2021, the SEC attorneys advised that they believe that some sort of enforcement action was warranted against TFL [Terraform Labs] and any cooperation, and implementation of remedial actions as to the Mirror Protocol, would result in a reduced financial sanction as part of any consent agreement,” according to the lawsuit. Five days later, Kwon was served. “The subpoenas were served on Mr. Kwon in public: Mr. Kwon was approached by the process server as he exited an escalator at the Mainnet Summit while on his way to make a scheduled presentation that was not about the Mirror Protocol,” the suit said.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Sept.21 2021 -- Event 1",
             wrap: 500
@@ -186,7 +173,7 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reverse system, it became the top three lead investors. SINGAPORE, Jan. 19, 2022 /PRNewswire-PRWeb/ -- The Luna Foundation Guard (LFG), a non-profit organization based in Singapore, has announced its formation and mission objective to support and sustain the growth and development of open-source technology, facilitating the realization of a decentralized economy. The entity, whose first prerogative is to focus on building reserves to better safeguard the UST peg during adverse market conditions, and second, allocating grants funding the development of the Terra ecosystem. LFG will receive an initial gift allocation of 50 million LUNA from Terraform Labs (TFL) to launch its intended initiatives. The funding will go toward building a bitcoin-denominated foreign-exchange reserve for UST, an algorithmic-based stablecoin in the Terra ecosystem, according to a statement.",
+            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reserve system with Jump Crypto and Three Arrows Capital as lead investors. The Luna Foundation Guard (LFG), a non-profit organization based in Singapore, has announced its formation and mission objective to support and sustain the growth and development of open-source technology, facilitating the realization of a decentralized economy. The entity, whose first prerogative is to focus on building reserves to better safeguard the UST peg during adverse market conditions, and second, allocating grants funding the development of the Terra ecosystem. LFG received an initial gift allocation of 50 million LUNA from Terraform Labs (TFL) to launch its intended initiatives. The funding will go toward building a bitcoin-denominated foreign-exchange reserve for UST, an algorithmic-based stablecoin in the Terra ecosystem, according to a statement.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Feb.22 2022 -- Event 2",
             wrap: 500
@@ -212,7 +199,7 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "The LUNA price falls 96% in a day, pushing it to less than 10 cents. On May 7, Signs of capital flight from UST: Curve Whale Watching, a bot that monitors and tweets large amounts of swaps, shows an 85 million UST swap for 84.5 million USDC. On May 8, UST dropped to a low of $0.985 on Saturday after a series of large dumps of UST on Terra’s lending protocol Anchor and stablecoin exchange protocol Curve. On May 8, LFG commits to loaning $750 million of BTC to market makers to defend the peg of UST and another $750 million of UST to be used to buy back BTC after volatility subsides. On the same day, Do Kwon Do Kwon jokes his way out of UST’s depegging risk. On May 9, Deposits on the Anchor protocol plunge below $9 billion from $14 billion after UST struggles to recover to $1. ANC, the protocol’s token, fell 35% during the day. And UST loses its $1 peg for the second time and falls to as low as 35 cents. Do Kwon again tweets, “Deploying more capital – steady lads.” On May 10, Claims that UST’s depeg is due to a Soros-esque attack begin to emerge. On May 11, More than half, 58%, of traders place futures bets on higher LUNA prices despite Tuesday’s drop, leading to $63 million in liquidations. LUNA reaches price levels previously seen in August 2021. Value locked on Anchor, Terra’s largest decentralized finance (DeFi) protocol, drops $11 billion over two days. Do Kwon is revealed to be one of the pseudonymous co-founders behind the failed algorithmic stablecoin Basis Cash, CoinDesk reports. After LUNA almost lost all of its token value, The Terra blockchain is halted for the second time at block 7607789 but resumes activity after around nine hours. The Okx and Binance exchanges end trading of Terra tokens after UST loses its dollar peg and LUNA slumps by more than 99%.",
+            label: "The LUNA price falls 96% in a day, pushing it to less than 10 cents. On May 7, signs of capital flight from UST: Curve Whale Watching, a bot that monitors and tweets large amounts of swaps, shows an 85 million UST swap for 84.5 million USDC. On May 8, UST dropped to a low of $0.985 on Saturday after a series of large dumps of UST on Terra’s lending protocol Anchor and stablecoin exchange protocol Curve. On May 8, LFG commits to loaning $750 million of BTC to market makers to defend the peg of UST and another $750 million of UST to be used to buy back BTC after volatility subsides. On the same day, Do Kwon Do Kwon jokes his way out of UST’s depegging risk. On May 9, Deposits on the Anchor protocol plunge below $9 billion from $14 billion after UST struggles to recover to $1. ANC, the protocol’s token, fell 35% during the day. And UST loses its $1 peg for the second time and falls to as low as 35 cents. Do Kwon again tweets, “Deploying more capital – steady lads.” On May 10, Claims that UST’s depeg is due to a Soros-esque attack begin to emerge. On May 11, More than half, 58%, of traders place futures bets on higher LUNA prices despite Tuesday’s drop, leading to $63 million in liquidations. LUNA reaches price levels previously seen in August 2021. Value locked on Anchor, Terra’s largest decentralized finance (DeFi) protocol, drops $11 billion over two days. Do Kwon is revealed to be one of the pseudonymous co-founders behind the failed algorithmic stablecoin Basis Cash, CoinDesk reports. After LUNA almost lost all of its token value, The Terra blockchain is halted for the second time at block 7607789 but resumes activity after around nine hours. The Okx and Binance exchanges end trading of Terra tokens after UST loses its dollar peg and LUNA slumps by more than 99%.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "May.12 2022 -- Event 4",
             wrap: 600
@@ -222,7 +209,7 @@ async function init() {
         y: yScale(parseFloat(0.0012191899563018388)),
         dy: -300,
         dx: -350
-    }].map(function (d) { d.color = "#E8336D"; return d })
+    }].map(function (d) { d.color = "#444444"; return d })
 
 
     renderChart = () => {
@@ -384,12 +371,11 @@ async function init() {
 
         if (currentAnnotationIndex < 0) {
             buttonX = 0
-            buttonY = 650
+            buttonY = height - 100
         } else {
             currentAnnotation = annotations[currentAnnotationIndex]
-
             if (currentAnnotation.dx < 0 && currentAnnotation.dy < 0 && currentAnnotation.dx < -20) {
-                buttonX = currentAnnotation.x + currentAnnotation.dx - 5
+                buttonX = currentAnnotation.x + currentAnnotation.dx - 20
                 buttonY = currentAnnotation.y + currentAnnotation.dy + buttonHeight + 10
             } else if (currentAnnotation.dx < 0 && currentAnnotation.dy > 0 && currentAnnotation.dx < -20) {
                 buttonX = currentAnnotation.x + currentAnnotation.dx - 5
