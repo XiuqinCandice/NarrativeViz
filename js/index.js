@@ -1,8 +1,9 @@
 async function init() {
     const data = await d3.json('data/market_chart.json');
     const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+    const headerHeight = document.querySelector('#header').clientHeight
     const width = window.innerWidth - margin.left - margin.right;
-    const height = window.innerHeight - margin.top - margin.bottom;
+    const height = window.innerHeight - margin.top - margin.bottom - headerHeight - margin['top'];
 
     const svg = d3
         .select('#chart')
@@ -79,8 +80,8 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "UST, the Terra blockchain’s stablecoin, is publicly announced, with plans to launch on the Ethereum and Solana networks.",
-            bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
+            label: "UST, the Terra blockchain's stablecoin, is publicly announced, with plans to launch on the Ethereum and Solana networks.",
+            bgPadding: { "top": 15, "left": 10, "right": 15, "bottom": 10 },
             title: "Sept.21 2020",
             wrap: 190
         },
@@ -92,7 +93,7 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "After hitting its all time high, the price drop sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon with concerns that Terra may violate Federal Securities law.",
+            label: "After hitting its all time high, the price drop sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Sept.21 2021 -- Event 1",
             wrap: 190
@@ -101,7 +102,7 @@ async function init() {
         x: xScale(new Date(1632268800000)),
         y: yScale(parseFloat(24.94675830843755)),
         dy: -100,
-        dx: -100
+        dx: -175
     }, {
         type: d3.annotationCallout,
         note: {
@@ -118,7 +119,7 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reserve system, with Jump Crypto and Three Arrows Capital as lead investors.",
+            label: "Luna Foundation Guard launches, raising $1 billion to buy Bitcoin for UST's reserve system.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Feb.22 2022 -- Event 2",
             wrap: 160
@@ -131,7 +132,7 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "LFG continued to purchase billion dollars worth of BTC, Do Kwon and other influential crypto investor tweeted to push the LUNA price to all time high.",
+            label: "LFG continued to purchase billion dollars worth of Bitcoin as LUNA price pushes to all time highs.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Mar-Apr 2022 -- Event 3",
             wrap: 190
@@ -160,7 +161,7 @@ async function init() {
     const highlightedAnnotations = [{
         type: d3.annotationCallout,
         note: {
-            label: "After hitting its all time high, the price dropped sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon may violate Federal Securities law. At issue is Terra’s Mirror Protocol, a decentralized finance (DeFi) platform on which synthetic stocks mirroring the price of major U.S. firms are minted and traded. The subpoena requests that Kwon provide testimony to U.S. regulators. As a resident of South Korea, Kwon is contesting the subpoena. Terraform's lawsuit against the SEC is unusual but, according to Anderson Kill lawyer Stephen Palley, preemptive legal action might make sense in this case. The SEC told Terraform's lawyers the U.S. regulator might sue the company. “In a conversation on September 15, 2021, the SEC attorneys advised that they believe that some sort of enforcement action was warranted against TFL [Terraform Labs] and any cooperation, and implementation of remedial actions as to the Mirror Protocol, would result in a reduced financial sanction as part of any consent agreement,” according to the lawsuit. Five days later, Kwon was served. “The subpoenas were served on Mr. Kwon in public: Mr. Kwon was approached by the process server as he exited an escalator at the Mainnet Summit while on his way to make a scheduled presentation that was not about the Mirror Protocol,” the suit said.",
+            label: "After hitting its all time high, the price dropped sharply after U.S. Securities and Exchange Commission subpoenas Terraform Labs founder Do Kwon. At issue is Terra's Mirror Protocol, a decentralized finance (DeFi) platform on which synthetic stocks mirroring the price of major U.S. firms are minted and traded. The subpoena requests that Kwon provide testimony to U.S. regulators. As a resident of South Korea, Kwon is contesting the subpoena. Terraform's lawsuit against the SEC is unusual but, according to Anderson Kill lawyer Stephen Palley, preemptive legal action might make sense in this case. The SEC told Terraform's lawyers the U.S. regulator might sue the company. “In a conversation on September 15, 2021, the SEC attorneys advised that they believe that some sort of enforcement action was warranted against TFL [Terraform Labs] and any cooperation, and implementation of remedial actions as to the Mirror Protocol, would result in a reduced financial sanction as part of any consent agreement,” according to the lawsuit. Five days later, Kwon was served. “The subpoenas were served on Mr. Kwon in public: Mr. Kwon was approached by the process server as he exited an escalator at the Mainnet Summit while on his way to make a scheduled presentation that was not about the Mirror Protocol,” the suit said.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Sept.21 2021 -- Event 1",
             wrap: 500
@@ -173,7 +174,7 @@ async function init() {
     }, {
         type: d3.annotationCallout,
         note: {
-            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy bitcoin for UST's reserve system with Jump Crypto and Three Arrows Capital as lead investors. The Luna Foundation Guard (LFG), a non-profit organization based in Singapore, has announced its formation and mission objective to support and sustain the growth and development of open-source technology, facilitating the realization of a decentralized economy. The entity, whose first prerogative is to focus on building reserves to better safeguard the UST peg during adverse market conditions, and second, allocating grants funding the development of the Terra ecosystem. LFG received an initial gift allocation of 50 million LUNA from Terraform Labs (TFL) to launch its intended initiatives. The funding will go toward building a bitcoin-denominated foreign-exchange reserve for UST, an algorithmic-based stablecoin in the Terra ecosystem, according to a statement.",
+            label: "After Do Kwon announced the launch of Luna Foundation Guard, it raised $1 billion through the sale of LUNA tokens to buy Bitcoin for UST's reserve system with Jump Crypto and Three Arrows Capital as lead investors. The Luna Foundation Guard (LFG), a non-profit organization based in Singapore, has announced its formation and mission objective to support and sustain the growth and development of open-source technology, facilitating the realization of a decentralized economy. The entity, whose first prerogative is to focus on building reserves to better safeguard the UST peg during adverse market conditions, and second, allocating grants funding the development of the Terra ecosystem. LFG received an initial gift allocation of 50 million LUNA from Terraform Labs (TFL) to launch its intended initiatives. The funding will go toward building a bitcoin-denominated foreign-exchange reserve for UST, an algorithmic-based stablecoin in the Terra ecosystem, according to a statement.",
             bgPadding: { "top": 15, "left": 10, "right": 10, "bottom": 10 },
             title: "Feb.22 2022 -- Event 2",
             wrap: 500
